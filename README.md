@@ -71,3 +71,76 @@ Use IDE (Eclipse)
 3. Click to "Update Project..."
 4. Click "OK" button 
 5. :coffee:
+
+***Create your first package and class in project***
+
+1. Create package org.toilatester.plugin
+2. Create java class PluginActivationListener.java inside package above
+   
+***Update pom.xml to bundle and add bundle plugin in the build configuration***
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.katalon</groupId>
+		<artifactId>com.katalon.platform.parent</artifactId>
+		<version>1.0.12</version>
+	</parent>
+
+	<groupId>toilatester.vn</groupId>
+	<artifactId>plugins</artifactId>
+    <version>0.0.1</version>
+	<packaging>bundle</packaging> 
+
+	<dependencies>
+		<dependency>
+			<groupId>com.katalon</groupId>
+			<artifactId>com.katalon.platform</artifactId>
+			<version>1.0.12</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<excludes>com/katalon/platform/**,org/eclipse/**,org/osgi/**</excludes>
+							<includes>**/*.class</includes>
+							<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId};singleton:=true</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Import-Package></Import-Package>
+						<DynamicImport-Package>*</DynamicImport-Package>
+						<_noee>true</_noee>
+						<_nouse>true</_nouse>
+						<Export-Package>org.toilatester.plugin*</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin> 
+		</plugins>
+	</build>
+</project>
+```
+

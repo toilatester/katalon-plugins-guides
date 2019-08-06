@@ -12,12 +12,10 @@
 
 	<groupId>toilatester.vn</groupId>
 	<artifactId>plugins</artifactId>
-	<version>0.0.1</version>
-
-	<!-- <packaging>bundle</packaging> -->
+    <version>0.0.1</version>
+	<packaging>bundle</packaging> 
 
 	<dependencies>
-		<!-- Katalon Platform dependencies -->
 		<dependency>
 			<groupId>com.katalon</groupId>
 			<artifactId>com.katalon.platform</artifactId>
@@ -45,7 +43,7 @@
 					</execution>
 				</executions>
 			</plugin>
-<!-- 			<plugin>
+			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
@@ -57,12 +55,10 @@
 						<DynamicImport-Package>*</DynamicImport-Package>
 						<_noee>true</_noee>
 						<_nouse>true</_nouse>
-
-						Change your public package here
-						<Export-Package>com.mycompany.plugin*</Export-Package>
+						<Export-Package>org.toilatester.plugin*</Export-Package>
 					</instructions>
 				</configuration>
-			</plugin> -->
+			</plugin> 
 		</plugins>
 	</build>
 </project>
