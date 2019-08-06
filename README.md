@@ -10,7 +10,8 @@
 - Create advance Katalon Studio plugin with inject tooltips and preference page
 
 ----------
-# Create Maven Project
+# Set up Project before implement a plugin for Katalon
+## Create Java Maven Project
 
 ***Define your initial pom.xml as config below***
 
@@ -72,11 +73,36 @@ Use IDE (Eclipse)
 4. Click "OK" button 
 5. :coffee:
 
-***Create your first package and class in project***
+## Config Maven project for implementing plugin
+
+***Create plugin package and sample plugin class in project***
 
 1. Create package org.toilatester.plugin
 2. Create java class PluginActivationListener.java inside package above
-   
+
+Below is a hierarchy or project:
+```bash
+project-folder
+|-src
+|  |-main
+|  |   |-java
+|  |   |   |-org
+|  |   |      |-toilatester
+|  |   |            |-plugin
+|  |   |                |-PluginActivationListener.java
+|  |   |-resources
+|  |       |-plugin.xml
+|  |-test
+|      |-java
+|      |   |-org
+|      |      |-toilatester
+|      |            |-plugin
+|      |                |-PluginActivationListener.java
+|      |-resources
+|          |-plugin.xml
+|-pom.xml
+```
+
 ***Update pom.xml to bundle and add bundle plugin in the build configuration***
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -144,3 +170,4 @@ Use IDE (Eclipse)
 </project>
 ```
 
+***Create plugin.xml in src/main/resources folder***
