@@ -12,8 +12,7 @@
 
 	<groupId>toilatester.vn</groupId>
 	<artifactId>plugins</artifactId>
-    <version>0.0.1</version>
-	<packaging>bundle</packaging> 
+	<packaging>bundle</packaging>
 
 	<dependencies>
 		<dependency>
@@ -22,7 +21,7 @@
 			<version>1.0.12</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -58,7 +57,7 @@
 						<Export-Package>org.toilatester.plugin*</Export-Package>
 					</instructions>
 				</configuration>
-			</plugin> 
+			</plugin>
 		</plugins>
 	</build>
 </project>

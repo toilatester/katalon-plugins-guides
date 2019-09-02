@@ -1,2 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <plugin>
+   <extension
+           point="com.katalon.platform.extensions">
+       <point
+               id="org.toilatester.plugin.PluginLifeCycleListener"
+               extensionPointId="com.katalon.platform.api.extension.pluginActivationListener"
+               implementationClass="org.toilatester.plugin.PluginLifeCycleListener">
+       </point>
+   </extension>
 </plugin>
